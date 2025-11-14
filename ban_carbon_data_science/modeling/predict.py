@@ -4,7 +4,7 @@ from loguru import logger
 from tqdm import tqdm
 import typer
 
-from ban_carbon_research.config import MODELS_DIR, PROCESSED_DATA_DIR
+from ban_carbon_data_science.config import MODELS_DIR, PROCESSED_DATA_DIR
 
 app = typer.Typer()
 

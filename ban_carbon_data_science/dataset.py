@@ -5,7 +5,7 @@ import pandas as pd
 import pandera.pandas as pa
 import geopandas
 
-from ban_carbon_research.config import RAW_DATA_DIR, PROCESSED_DATA_DIR
+from ban_carbon_data_science.config import RAW_DATA_DIR, PROCESSED_DATA_DIR
 
 def process_rggi_emissions_annual_facility():
     fname = "rggi-emissions-annual-facility.csv"

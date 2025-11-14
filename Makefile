@@ -2,7 +2,7 @@
 # GLOBALS                                                                       #
 #################################################################################
 
-PROJECT_NAME = ban-carbon-research
+PROJECT_NAME = ban-carbon-data-science
 PYTHON_VERSION = 3.12
 PYTHON_INTERPRETER = python
 
@@ -65,7 +65,7 @@ create_environment:
 ## Make dataset
 .PHONY: data
 data: requirements
-	$(PYTHON_INTERPRETER) ban_carbon_research/dataset.py
+	$(PYTHON_INTERPRETER) ban_carbon_data_science/dataset.py
 
 
 #################################################################################

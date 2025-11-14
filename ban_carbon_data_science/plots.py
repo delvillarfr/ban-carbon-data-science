@@ -4,7 +4,7 @@ import geopandas
 import matplotlib.pyplot as plt
 import typer
 
-from ban_carbon_research.config import (
+from ban_carbon_data_science.config import (
     FIGURES_DIR, RAW_DATA_DIR, PROCESSED_DATA_DIR
 )
 

@@ -3,9 +3,9 @@ requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "ban_carbon_research"
+name = "ban_carbon_data_science"
 version = "0.0.1"
-description = "Ban Carbon research."
+description = "Ban Carbon data science."
 authors = [
   { name = "Francisco del Villar" },
 ]
@@ -36,13 +36,13 @@ requires-python = "~=3.12.0"
 
 [tool.ruff]
 line-length = 99
-src = ["ban_carbon_research"]
-include = ["pyproject.toml", "ban_carbon_research/**/*.py"]
+src = ["ban_carbon_data_science"]
+include = ["pyproject.toml", "ban_carbon_data_science/**/*.py"]
 
 [tool.ruff.lint]
 extend-select = ["I"]  # Add import sorting
 
 [tool.ruff.lint.isort]
-known-first-party = ["ban_carbon_research"]
+known-first-party = ["ban_carbon_data_science"]
 force-sort-within-sections = true
 

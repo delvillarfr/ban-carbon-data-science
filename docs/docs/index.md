@@ -1,8 +1,8 @@
-# Ban Carbon Research documentation!
+# Ban Carbon Data Science documentation!
 
 ## Description
 
-Ban Carbon research.
+Ban Carbon data science.
 
 ## Commands
 

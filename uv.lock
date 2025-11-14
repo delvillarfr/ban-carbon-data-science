@@ -12,7 +12,7 @@ wheels = [
 ]
 
 [[package]]
-name = "ban-carbon-research"
+name = "ban-carbon-data-science"
 version = "0.0.1"
 source = { editable = "." }
 dependencies = [
