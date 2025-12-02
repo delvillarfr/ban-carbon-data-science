@@ -5,7 +5,12 @@ import pandas as pd
 import pandera.pandas as pa
 import geopandas
 
-from ban_carbon_data_science.config import RAW_DATA_DIR, PROCESSED_DATA_DIR
+from power_plant_emissions.config import (
+    PROCESSED_DATA_DIR,
+    RAW_DATA_DIR,
+    SHARED_PROCESSED_DATA_DIR,
+    SHARED_RAW_DATA_DIR,
+)
 
 def process_rggi_emissions_annual_facility():
     fname = "rggi-emissions-annual-facility.csv"
@@ -100,9 +105,9 @@ def process_geolocated_power_plants():
 
 def process_world_countries():
     fname = "geoBoundariesCGAZ_ADM0"
-    gdf = geopandas.read_file(RAW_DATA_DIR / fname)
+    gdf = geopandas.read_file(SHARED_RAW_DATA_DIR / fname)
     gdf = gdf.to_crs("EPSG:4326")
-    gdf.to_file(PROCESSED_DATA_DIR / fname, index = False)
+    gdf.to_file(SHARED_PROCESSED_DATA_DIR / fname, index = False)
     
 def main():
     process_rggi_emissions_annual_facility()

@@ -1,17 +1,19 @@
-import numpy as np
 import pandas as pd
 import geopandas
 import matplotlib.pyplot as plt
 import typer
 
-from ban_carbon_data_science.config import (
-    FIGURES_DIR, RAW_DATA_DIR, PROCESSED_DATA_DIR
+from ban_carbon_common.visualization import setup_map_figure
+from power_plant_emissions.config import (
+    FIGURES_DIR,
+    PROCESSED_DATA_DIR,
+    SHARED_RAW_DATA_DIR,
 )
 
 def map_power_plants():
     geo_pps = geopandas.read_file(PROCESSED_DATA_DIR / "Power_Plants")
     rggi_pps = pd.read_csv(PROCESSED_DATA_DIR / "rggi-emissions-annual-facility.csv")
-    usa  = geopandas.read_file(RAW_DATA_DIR / "cb_2018_us_state_500k")
+    usa  = geopandas.read_file(SHARED_RAW_DATA_DIR / "cb_2018_us_state_500k")
     usa.geometry = usa.simplify(tolerance = 0.02)
 
     pps = geo_pps.merge(
@@ -27,10 +29,7 @@ def map_power_plants():
     pps = pps[pps["_merge"] == "both"].drop("_merge", axis = 1)
 
     # Create the map with visible country boundaries
-    fig, ax = plt.subplots(figsize=(12, 12))
-    # Match the background color to the expected landing page's color
-    fig.patch.set_facecolor('black')
-    ax.set_facecolor('black')
+    fig, ax = setup_map_figure(figsize=(12, 12), background_color='black')
 
     # Plot Northeastern USA
     states_ne = [

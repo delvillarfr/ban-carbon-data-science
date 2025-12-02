@@ -1,0 +1,25 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "power_plant_emissions"
+version = "0.1.0"
+description = "Analysis of RGGI power plant emissions data"
+authors = [
+  { name = "Francisco del Villar" },
+]
+license = { text = "MIT License" }
+readme = "README.md"
+requires-python = "~=3.12.0"
+dependencies = [
+    "ban_carbon_common",
+    "openpyxl>=3.1.5",
+]
+
+[tool.uv.sources]
+ban_carbon_common = { workspace = true }
+
+[tool.ruff]
+line-length = 99
+src = ["src"]

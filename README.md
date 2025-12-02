@@ -1,61 +1,63 @@
-# Ban Carbon Data Science
+# Ban Carbon Data Science Monorepo
 
 <a target="_blank" href="https://cookiecutter-data-science.drivendata.org/">
     <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
 </a>
 
-Ban Carbon data science.
+A monorepo for Ban Carbon data science projects, following Cookiecutter Data Science v2 best practices.
 
-## Project Organization
+## Structure
 
-```
-├── LICENSE            <- Open-source license if one is chosen
-├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
-├── README.md          <- The top-level README for developers using this project.
-├── data
-│   ├── external       <- Data from third party sources.
-│   ├── interim        <- Intermediate data that has been transformed.
-│   ├── processed      <- The final, canonical data sets for modeling.
-│   └── raw            <- The original, immutable data dump.
-│
-├── docs               <- A default mkdocs project; see www.mkdocs.org for details
-│
-├── models             <- Trained and serialized models, model predictions, or model summaries
-│
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`.
-│
-├── pyproject.toml     <- Project configuration file with package metadata for
-│                         ban_carbon_data_science and configuration for tools like black
-│
-├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-│
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
-│
-├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
-│
-├── setup.cfg          <- Configuration file for flake8
-│
-└── ban_carbon_data_science   <- Source code for use in this project.
-    │
-    ├── __init__.py             <- Makes ban_carbon_data_science a Python module
-    │
-    ├── config.py               <- Store useful variables and configuration
-    │
-    ├── dataset.py              <- Scripts to download or generate data
-    │
-    ├── features.py             <- Code to create features for modeling
-    │
-    ├── modeling                
-    │   ├── __init__.py 
-    │   ├── predict.py          <- Code to run model inference with trained models          
-    │   └── train.py            <- Code to train models
-    │
-    └── plots.py                <- Code to create visualizations
+- **`libraries/`**: Shared code libraries used across projects
+  - `ban_carbon_common`: Common utilities for paths, I/O, and visualization
+
+- **`projects/`**: Individual data science projects
+  - `power-plant-emissions`: Analysis of RGGI power plant emissions
+
+- **`data/`**: Shared datasets used across multiple projects
+
+## Quick Start
+
+### Setup
+
+```bash
+# Create virtual environment
+make create_environment
+source .venv/bin/activate  # Unix/macOS
+
+# Install dependencies
+make requirements
 ```
 
---------
+### Working with Projects
 
+```bash
+# Navigate to a project
+cd projects/power-plant-emissions
+make help
+
+# Or use shortcuts from root
+make ppe-data      # Process power-plant-emissions data
+make ppe-viz-map   # Generate visualization
+```
+
+## Available Commands
+
+```bash
+make help             # Show all commands
+make requirements     # Install dependencies
+make lint             # Check code style
+make format           # Format code
+make test-all         # Run all tests
+make clean            # Remove artifacts
+```
+
+## Adding a New Project
+
+1. Create project directory: `mkdir -p projects/my-new-project/src/my_new_project`
+2. Copy structure from `projects/power-plant-emissions`
+3. Run `uv sync` to register the project
+
+## License
+
+MIT License - see LICENSE file
