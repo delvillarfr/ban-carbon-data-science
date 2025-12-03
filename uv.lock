@@ -6,6 +6,7 @@ requires-python = "==3.12.*"
 members = [
     "ban-carbon-common",
     "power-plant-emissions",
+    "revenue-forecast",
 ]
 
 [manifest.dependency-groups]
@@ -33,6 +34,7 @@ dependencies = [
     { name = "loguru" },
     { name = "matplotlib" },
     { name = "numpy" },
+    { name = "openpyxl" },
     { name = "pandas" },
     { name = "pandera" },
     { name = "python-dotenv" },
@@ -46,6 +48,7 @@ requires-dist = [
     { name = "loguru" },
     { name = "matplotlib", specifier = ">=3.10.6" },
     { name = "numpy", specifier = ">=2.3.3" },
+    { name = "openpyxl", specifier = ">=3.1.5" },
     { name = "pandas", specifier = ">=2.3.2" },
     { name = "pandera", specifier = ">=0.26.1" },
     { name = "python-dotenv" },
@@ -669,6 +672,17 @@ sdist = { url = "https://files.pythonhosted.org/packages/eb/2e/79c822141bfd05a85
 wheels = [
     { url = "https://files.pythonhosted.org/packages/04/11/432f32f8097b03e3cd5fe57e88efb685d964e2e5178a48ed61e841f7fdce/pyyaml_env_tag-1.1-py3-none-any.whl", hash = "sha256:17109e1a528561e32f026364712fee1264bc2ea6715120891174ed1b980d2e04", size = 4722, upload-time = "2025-05-13T15:23:59.629Z" },
 ]
+
+[[package]]
+name = "revenue-forecast"
+version = "0.1.0"
+source = { editable = "projects/revenue-forecast" }
+dependencies = [
+    { name = "ban-carbon-common" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "ban-carbon-common", editable = "libraries/ban_carbon_common" }]
 
 [[package]]
 name = "rich"
