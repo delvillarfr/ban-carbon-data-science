@@ -2,6 +2,7 @@ from pathlib import Path
 
 from loguru import logger
 
+
 def get_monorepo_root(start_path: Path | None = None) -> Path:
     """
     Find monorepo root by looking for pyproject.toml with workspace config.
@@ -29,19 +30,19 @@ def get_monorepo_root(start_path: Path | None = None) -> Path:
 
     raise RuntimeError("Could not find monorepo root with [tool.uv.workspace]")
 
-# Shared paths at monorepo root
+
+# Monorepo paths
 MONOREPO_ROOT = get_monorepo_root()
 logger.info(f"Monorepo root: {MONOREPO_ROOT}")
 
-SHARED_DATA_DIR = MONOREPO_ROOT / "data"
-SHARED_RAW_DATA_DIR = SHARED_DATA_DIR / "raw"
-SHARED_INTERIM_DATA_DIR = SHARED_DATA_DIR / "interim"
-SHARED_PROCESSED_DATA_DIR = SHARED_DATA_DIR / "processed"
-SHARED_EXTERNAL_DATA_DIR = SHARED_DATA_DIR / "external"
+DATA_DIR = MONOREPO_ROOT / "data"
+RAW_DATA_DIR = DATA_DIR / "raw"
+PROCESSED_DATA_DIR = DATA_DIR / "processed"
 
 # Configure logger with tqdm integration
 try:
     from tqdm import tqdm
+
     logger.remove(0)
     logger.add(lambda msg: tqdm.write(msg, end=""), colorize=True)
 except ModuleNotFoundError:
@@ -50,9 +51,7 @@ except ModuleNotFoundError:
 __all__ = [
     "get_monorepo_root",
     "MONOREPO_ROOT",
-    "SHARED_DATA_DIR",
-    "SHARED_RAW_DATA_DIR",
-    "SHARED_INTERIM_DATA_DIR",
-    "SHARED_PROCESSED_DATA_DIR",
-    "SHARED_EXTERNAL_DATA_DIR",
+    "DATA_DIR",
+    "RAW_DATA_DIR",
+    "PROCESSED_DATA_DIR",
 ]

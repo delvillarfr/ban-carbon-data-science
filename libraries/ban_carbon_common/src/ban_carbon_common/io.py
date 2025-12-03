@@ -4,13 +4,16 @@ Shared data I/O utilities with validation.
 This module provides reusable functions for loading and processing
 geospatial and tabular data with pandera validation.
 """
+
 from pathlib import Path
 
 import geopandas
 from loguru import logger
 
 
-def load_world_boundaries(raw_dir: Path, processed_dir: Path, force: bool = False) -> geopandas.GeoDataFrame:
+def load_world_boundaries(
+    raw_dir: Path, processed_dir: Path, force: bool = False
+) -> geopandas.GeoDataFrame:
     """
     Load world country boundaries, processing if necessary.
 

@@ -42,12 +42,6 @@ clean:
 	find . -type d -name "__pycache__" -delete
 	find . -type d -name ".ruff_cache" -exec rm -rf {} +
 
-## Run all tests across workspace
-.PHONY: test-all
-test-all:
-	$(PYTHON_INTERPRETER) -m pytest libraries/ban_carbon_common/tests
-	$(PYTHON_INTERPRETER) -m pytest projects/power-plant-emissions/tests
-
 #################################################################################
 # PROJECT SHORTCUTS                                                             #
 #################################################################################

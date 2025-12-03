@@ -4,10 +4,11 @@ Shared visualization utilities.
 This module provides reusable plotting functions for geographic
 and statistical visualizations.
 """
+
 import matplotlib.pyplot as plt
 
 
-def setup_map_figure(figsize=(12, 12), background_color='black'):
+def setup_map_figure(figsize=(12, 12), background_color="black"):
     """
     Create a matplotlib figure configured for mapping.
 
@@ -21,7 +22,7 @@ def setup_map_figure(figsize=(12, 12), background_color='black'):
     fig, ax = plt.subplots(figsize=figsize)
     fig.patch.set_facecolor(background_color)
     ax.set_facecolor(background_color)
-    ax.axis('off')
+    ax.axis("off")
     return fig, ax
 
 
